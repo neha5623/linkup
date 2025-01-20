@@ -1,125 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="UTF-8">
-        <link href="css/style.css" rel="stylesheet">
-        <link rel="icon" type="image/svg+xml" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXFgk4myswk6OhVHe7g7YVUlR7RD-ERO2OHw&amp;s">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8">
+   <link href="css/style.css" rel="stylesheet">
+   <link rel="icon" type="image/svg+xml"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXFgk4myswk6OhVHe7g7YVUlR7RD-ERO2OHw&amp;s">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-       
+   <!--thise files jquery-->
+   <script src="home.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <title>Tinker Hub</title>
 
-        <title>Tinker Hub</title>
-     
 </head>
+
 <body>
-    <div class="app-container">
-        <div class="logo">
-           <a href="https://tinkerhub.org/" target="_blank">
-           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXFgk4myswk6OhVHe7g7YVUlR7RD-ERO2OHw&amp;s" alt="Tinker Hub Logo">
-           </a>
-           <h3>Tinker Hub</h3>
-        </div>
-        <div class="color-block" id="colorBlock">
-           <div class="random-block" style="position: absolute; left: 1404px; top: 632px; background-color: rgb(34, 109, 48); width: 10px; height: 10px; z-index: -99; transform: rotate(147deg);"></div>
-           <div class="random-block" style="position: absolute; left: 1375px; top: 93px; background-color: rgb(145, 174, 168); width: 10px; height: 10px; z-index: -99; transform: rotate(354deg);"></div>
-           <div class="random-block" style="position: absolute; left: 1450px; top: 630px; width: 10px; height: 10px; z-index: -99; transform: rotate(122deg);"></div>
-           <div class="random-block" style="position: absolute; left: 1040px; top: 556px; background-color: rgb(41, 252, 188); width: 10px; height: 10px; z-index: -99; transform: rotate(193deg);"></div>
-           <div class="random-block" style="position: absolute; left: 393px; top: 590px; background-color: rgb(105, 13, 157); width: 10px; height: 10px; z-index: -99; transform: rotate(143deg);"></div>
-           <div class="random-block" style="position: absolute; left: 1435px; top: 622px; background-color: rgb(42, 98, 45); width: 10px; height: 10px; z-index: -99; transform: rotate(84deg);"></div>
-           <div class="random-block" style="position: absolute; left: 224px; top: 573px; background-color: rgb(66, 41, 7); width: 10px; height: 10px; z-index: -99; transform: rotate(31deg);"></div>
-           <div class="random-block" style="position: absolute; left: 859px; top: 449px; background-color: rgb(94, 127, 218); width: 10px; height: 10px; z-index: -99; transform: rotate(20deg);"></div>
-           <div class="random-block" style="position: absolute; left: 1433px; top: 478px; background-color: rgb(142, 246, 65); width: 10px; height: 10px; z-index: -99; transform: rotate(116deg);"></div>
-           <div class="random-block" style="position: absolute; left: 340px; top: 463px; background-color: rgb(132, 231, 211); width: 10px; height: 10px; z-index: -99; transform: rotate(122deg);"></div>
-        </div>
-       
-        <h2 class="search-title">Search People</h2>
-        <input type="text" id="nameInput" placeholder="Enter name" class="search-input" onkeydown="handleKeyDown(event)">
-        <button id="searchButton" onclick="handleSearch()">Search</button>
-        <div class="results-container">
-           <h2 class="results-title">Results</h2>
+   <div class="filter">
+      <h3 style="color:white;padding-left:10px ;">filter by</h3>
+      <ul>
+      <li >
+      
+      </li>
+      </ul>
+   </div>
+   <img src="filterkey.svg" alt="filterkey" id="filterkey">
+   <div class="app-container">
+      <div class="logo">
+         <a href="https://tinkerhub.org/" target="_blank">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXFgk4myswk6OhVHe7g7YVUlR7RD-ERO2OHw&amp;s"
+               alt="Tinker Hub Logo">
+         </a>
+         <h3>Tinker Hub</h3>
+      </div>
+      <div class="color-block" id="colorBlock">
+         <div class="random-block"
+            style="position: absolute; left: 1404px; top: 632px; background-color: rgb(34, 109, 48); width: 10px; height: 10px; z-index: -99; transform: rotate(147deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 1375px; top: 93px; background-color: rgb(145, 174, 168); width: 10px; height: 10px; z-index: -99; transform: rotate(354deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 1450px; top: 630px; width: 10px; height: 10px; z-index: -99; transform: rotate(122deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 1040px; top: 556px; background-color: rgb(41, 252, 188); width: 10px; height: 10px; z-index: -99; transform: rotate(193deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 393px; top: 590px; background-color: rgb(105, 13, 157); width: 10px; height: 10px; z-index: -99; transform: rotate(143deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 1435px; top: 622px; background-color: rgb(42, 98, 45); width: 10px; height: 10px; z-index: -99; transform: rotate(84deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 224px; top: 573px; background-color: rgb(66, 41, 7); width: 10px; height: 10px; z-index: -99; transform: rotate(31deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 859px; top: 449px; background-color: rgb(94, 127, 218); width: 10px; height: 10px; z-index: -99; transform: rotate(20deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 1433px; top: 478px; background-color: rgb(142, 246, 65); width: 10px; height: 10px; z-index: -99; transform: rotate(116deg);">
+         </div>
+         <div class="random-block"
+            style="position: absolute; left: 340px; top: 463px; background-color: rgb(132, 231, 211); width: 10px; height: 10px; z-index: -99; transform: rotate(122deg);">
+         </div>
+      </div>
 
-           <!-- card starting-->
-           <ul id="resultsList" class="results-list">
-             
-            <!--<li class="result-item">
-                 <img class="profileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFuPIqUCPEEVqyX68kug4OrbP9BKpIk7sdg&amp;s" atl="profile img of Alice">
-                 <div class="details">
-                    <p><strong>Name:</strong> Alice</p>
-                    <p><strong>Skills:</strong> React, Node.js</p>
-                 </div>
-              </li>
+      <h2 class="search-title">Search People</h2>
+      <input type="text" id="nameInput" placeholder="Enter name" class="search-input" >
+      <button id="searchButton" >Search</button>
+      <div class="results-container">
+         <h2 class="results-title">Results</h2>
 
-              <li class="result-item">
-                 <img class="profileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaPyeDyTpc2U7lR96etWzLQU5s77awUPs1Zt17g8LwWLs9vzTmIxlgYHLdpDYRK9Mxj8&amp;usqp=CAU" atl="profile img of Bob">
-                 <div class="details">
-                    <p><strong>Name:</strong> Bob</p>
-                    <p><strong>Skills:</strong> Java, Spring Boot</p>
-                 </div>
-              </li>
-              <li class="result-item">
-                 <img class="profileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxro3rG1xAqRKpIrZyuzGIQqUEvEtRU_XSyA&amp;s" atl="profile img of Charlie">
-                 <div class="details">
-                    <p><strong>Name:</strong> Charlie</p>
-                    <p><strong>Skills:</strong> Python, Django</p>
-                 </div>
-              </li>
-              <li class="result-item">
-                 <img class="profileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaPyeDyTpc2U7lR96etWzLQU5s77awUPs1Zt17g8LwWLs9vzTmIxlgYHLdpDYRK9Mxj8&amp;usqp=CAU" atl="profile img of Diana">
-                 <div class="details">
-                    <p><strong>Name:</strong> Diana</p>
-                    <p><strong>Skills:</strong> React, JavaScript</p>
-                 </div>
-              </li>--->
+         <!-- card starting-->
+         <ul id="resultsList" class="results-list">
 
-           </ul>
-           <!-- card ending-->
+            
+         </ul>
+         <!-- card ending-->
 
-        </div>
-     </div>
-
-     <script>
-       
-        var eventParticipants = [
-
-           {
-             name:"Alice",
-             skills:"React, Node.js",
-             profilePic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFuPIqUCPEEVqyX68kug4OrbP9BKpIk7sdg&s"
-
-           },
-           {
-             name:"Bob",
-             skills:"Java, Spring Boot",
-             profilePic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaPyeDyTpc2U7lR96etWzLQU5s77awUPs1Zt17g8LwWLs9vzTmIxlgYHLdpDYRK9Mxj8&usqp=CAU"
-
-           },
-           
-           {
-             name:"Charlie",
-             skills:" Python, Django",
-             profilePic:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxro3rG1xAqRKpIrZyuzGIQqUEvEtRU_XSyA&amp;s"
-
-           },
-        ];
-
-        console.log(eventParticipants)
- 
-        for(i=0;i<eventParticipants.length;i++){
-          
-            var participantCard = `<li class="result-item">
-                 <img class="profileImg" src="${eventParticipants[i].profilePic}" atl="profile img of Alice">
-                 <div class="details">
-                    <p><strong>Name:</strong> ${eventParticipants[i].name}</p>
-                    <p><strong>Skills:</strong> ${eventParticipants[i].skills}</p>
-                 </div>
-              </li>`
-
-              $("#resultsList").append(participantCard);
-        }
-
-     </script>
-
+      </div>
+   </div>
 </body>
+
 </html>

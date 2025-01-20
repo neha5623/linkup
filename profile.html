@@ -8,7 +8,9 @@
         <link rel="icon" type="image/svg+xml" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXFgk4myswk6OhVHe7g7YVUlR7RD-ERO2OHw&amp;s">
         <title>Profile</title>
         <link rel="stylesheet" href="css/profile.css">
-      
+        <!--thise files jquery-->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     </head>
 </head>
 <body>
@@ -22,22 +24,26 @@
        <div class="color-block" id="colorBlock"></div>
        <!-- Profile header -->
        <div class="profile-header">
-          <img id="profileImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFuPIqUCPEEVqyX68kug4OrbP9BKpIk7sdg&amp;s" alt="Profile Image" width="150" height="150">
-          <h1 id="profile-name">Alice</h1>
+          <img id="profileImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaPyeDyTpc2U7lR96etWzLQU5s77awUPs1Zt17g8LwWLs9vzTmIxlgYHLdpDYRK9Mxj8&amp;usqp=CAU" alt="Profile Image" width="150" height="150">
+          <h1 id="profile-name"></h1>
        </div>
        <!-- Profile details -->
        <div class="profile-details">
+          <h3 >College:</h3>
+          <ul id="college-name" >
+             
+          </ul>
+          <h3 >Department:</h3>
+          <ul id="dept-name">
+             
+          </ul>
           <h3>Skills:</h3>
           <ul id="profile-skills">
-             <li>React</li>
-             <li>Node.js</li>
+             
           </ul>
           <h3>Social Media:</h3>
           <div class="social">
-             <!-- Facebook -->
-             <a href="https://facebook.com/alice" target="_blank" rel="noopener noreferrer" id="facebook-link" class="link">
-             <img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-large-size-PNG.png" alt="Facebook" class="fa fa-facebook">
-             </a>
+            
              <!-- Instagram -->
              <a href="https://instagram.com/alice" target="_blank" rel="noopener noreferrer" id="instagram-link">
              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTEEj5FJorXllMEvr7SNuA14DJX6DV7eu09Q&amp;s" alt="Instagram" class="fa fa-instagram">
@@ -46,13 +52,80 @@
              <a href="https://linkedin.com/in/alice" target="_blank" rel="noopener noreferrer" id="linkedin-link">
              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrIbiofxGclX20CWBDtpmjOcbbuqEJS6PrSQ&amp;s" alt="LinkedIn" class="fa fa-linkedin">
              </a>
-             <!-- YouTube -->
+
+              <!-- github -->
+              <a href="https://linkedin.com/in/alice" target="_blank" rel="noopener noreferrer" id="github-link">
+               <img src="https://logo.clearbit.com/kuutsav.github.io?size=320" alt="LinkedIn" class="fa fa-linkedin">
+               </a>
+
+             <!-- YouTube 
              <a href="https://youtube.com/alice" target="_blank" rel="noopener noreferrer" id="youtube-link">
              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAZjIr23tvjBqyt4fGvtFEVdRaQmbRcgMZLuXHfE7Lj0EbMJHy4Q4bm7ZvBQRxMHu435c&amp;usqp=CAU" alt="YouTube" class="fa fa-youtube">
-             </a>
+             </a>-->
+
+              <!-- Facebook 
+              <a href="https://facebook.com/alice" target="_blank" rel="noopener noreferrer" id="facebook-link" class="link">
+               <img src="https://www.edigitalagency.com.au/wp-content/uploads/Facebook-logo-blue-large-size-PNG.png" alt="Facebook" class="fa fa-facebook">
+               </a>-->
+
           </div>
        </div>
     </div>
 
+    <script>
+
+      var url_string = window.location.href
+      var addressUrl = new URL(url_string);
+      var cardno = parseInt(addressUrl.searchParams.get("cardno"));
+
+     
+
+      const API_KEY = 'AIzaSyBPsZJstA4soxiFjDSwtblKJOvObCgEkmg';
+      const clientId = '183058898586-ld3n87r7erfmj104c1a41c4ng625hsjv.apps.googleusercontent.com'
+      const SHEET_ID = '1NaRLeOsIKkO7N47wqsa-kchYcVOQ9C-HqpaDpdkzCgQ';
+      const RANGE = 'Event Participants';
+
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+
+      var eventParticipants = [];
+
+      fetch(url)
+         .then(response => response.json())
+         .then(data => {
+
+            const eventParticipants = data.values;
+            console.log("sheetData = ", eventParticipants);
+
+            var name = eventParticipants[cardno][1];
+            var profilePic = eventParticipants[cardno][10];
+            var skill = eventParticipants[cardno][5];
+            var clg_name=eventParticipants[cardno][2];
+            var dept=eventParticipants[cardno][3];
+            var yr=eventParticipants[cardno][4];
+            var linkedinUrl = eventParticipants[cardno][7];
+            var instaUrl = eventParticipants[cardno][9];
+            var githubUrl = eventParticipants[cardno][8];
+
+            if (typeof profilePic === 'undefined'){
+               profilePic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaPyeDyTpc2U7lR96etWzLQU5s77awUPs1Zt17g8LwWLs9vzTmIxlgYHLdpDYRK9Mxj8&amp;usqp=CAU";
+              }else{
+               var params = new URLSearchParams(new URL(profilePic).search);
+               var id = params.get("id"); 
+                profilePic = `https://lh3.googleusercontent.com/d/${id}=w1024?authuser=0`;
+              }     
+
+            $("#profile-name").html(name);
+            $("#profileImage").attr("src",profilePic)
+            $("#profile-skills").html(`<li>${skill}</li>`)
+
+            $("#instagram-link").attr("href",instaUrl);
+            $("#linkedin-link").attr("href",linkedinUrl);
+            $("#github-link").attr("href",githubUrl);
+            $("#college-name").html(clg_name);
+            $("#dept-name").html(`${dept},${yr}`);
+         })
+         .catch(error => console.error('Error fetching data:', error));
+
+    </script>
 </body>
 </html>
